@@ -25,11 +25,11 @@ String password = request.getParameter("password"); */
 
 %>
 
-<h2>Name:${user.name}</h2>
-<h2>Username:${user.username }</h2>
-<h2>Email:${user.email }</h2>
-<h2>PhoneNo:${user.phoneNo}</h2>
-<h2>Password:${user.password}</h2>
+<h2>Name:${name}</h2>
+<h2>Username:${username }</h2>
+<h2>Email:${email }</h2>
+<h2>PhoneNo:${phoneNo}</h2>
+<h2>Password:${password}</h2>
 
 
 </body>

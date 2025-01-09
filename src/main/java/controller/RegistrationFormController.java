@@ -19,28 +19,34 @@ public class RegistrationFormController {
 		return "registration_form";
 	}
 	
-//	@RequestMapping(path="/process",method=RequestMethod.POST)
-//	public String processForm(
-//			@RequestParam("name") String name,
-//			@RequestParam("email") String email,
-//			@RequestParam("username") String username,
-//			@RequestParam("phoneNo") String phoneNo,
-//			@RequestParam("password") String password,
-//			Model model) {
-//		
-//		
-//		System.out.println("Name:"+name);
-//		System.out.println("Username:"+username);
-//		System.out.println("Email:"+email);
-//		System.out.println("PhoneNo:"+phoneNo);
-//		System.out.println("Password:"+password);
-//		
-////		model.addAttribute("name",name);
-////		model.addAttribute("userName",username);
-////		model.addAttribute("email",email);
-////		model.addAttribute("phoneNo",phoneNo);
-////		model.addAttribute("password",password);
-//		
+	@RequestMapping(path="/process",method=RequestMethod.POST)
+	public String processForm(
+			@RequestParam("name") String name,
+			@RequestParam("email") String email,
+			@RequestParam("username") String username,
+			@RequestParam("phoneNo") String phoneNo,
+			@RequestParam("password") String password,
+			Model model) {
+		
+		
+		System.out.println("Name:"+name);
+		System.out.println("Username:"+username);
+		System.out.println("Email:"+email);
+		System.out.println("PhoneNo:"+phoneNo);
+		System.out.println("Password:"+password);
+		
+		if(email.isEmpty()||password.isEmpty()) {
+			return "redirect:/registration";
+		}
+		else if(password.length()<8)
+			return "redirect:/registration";
+		
+		model.addAttribute("name",name);
+		model.addAttribute("userName",username);
+		model.addAttribute("email",email);
+		model.addAttribute("phoneNo",phoneNo);	
+		model.addAttribute("password",password);
+		
 //		User user = new User();
 //		user.setName(name);
 //		user.setEmail(email);
@@ -49,20 +55,20 @@ public class RegistrationFormController {
 //		user.setPhoneNo(phoneNo);
 //		
 //		model.addAttribute("user",user);
-//		
-//		return "information";
-//
-//	}
-	
-	
-	@RequestMapping(path="/process",method=RequestMethod.POST)
-	public String processForm(
-			@ModelAttribute User user
-			,Model model
-			) {
 		
 		return "information";
+
 	}
+	
+	
+//	@RequestMapping(path="/process",method=RequestMethod.POST)
+//	public String processForm(
+//			@ModelAttribute User user
+//			,Model model
+//			) {
+//		
+//		return "information";
+//	}
 	
 
 }
